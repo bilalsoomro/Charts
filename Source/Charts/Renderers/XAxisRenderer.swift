@@ -435,6 +435,21 @@ open class XAxisRenderer: AxisRendererBase
                 y: viewPortHandler.contentBottom - labelLineHeight - yOffset
             )
             align = .right
+        
+        case .topRightRotated:
+            point = CGPoint(
+                x: position.x + xOffset,
+                y: -yOffset - 5
+            )
+            align = .left
+            ChartUtils.drawText(
+                context: context,
+                text: label,
+                point: point,
+                attributes: attributes,
+                angle: CGFloat(90)
+            )
+            return
         }
 
         ChartUtils.drawText(

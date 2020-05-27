@@ -24,6 +24,7 @@ open class ChartLimitLine: ComponentBase
         case topRight
         case bottomLeft
         case bottomRight
+        case topRightRotated
     }
     
     /// limit / maximum (the y-value or xIndex)

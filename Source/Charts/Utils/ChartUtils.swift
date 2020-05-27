@@ -191,6 +191,25 @@ open class ChartUtils
         NSUIGraphicsPopContext()
     }
     
+    open class func drawText(context: CGContext, text: String, point: CGPoint, attributes: [NSAttributedString.Key : Any]?, angle: CGFloat)
+    {
+        var point = point
+        
+        NSUIGraphicsPushContext(context)
+        
+        context.saveGState()
+        context.translateBy(x: point.x, y: point.y)
+        context.rotate(by: angle * .pi / 180)
+        
+        point.x = 30
+        
+        (text as NSString).draw(at: point, withAttributes: attributes)
+        
+        context.restoreGState()
+        
+        NSUIGraphicsPopContext()
+    }
+    
     open class func drawText(context: CGContext, text: String, point: CGPoint, attributes: [NSAttributedString.Key : Any]?, anchor: CGPoint, angleRadians: CGFloat)
     {
         var drawOffset = CGPoint()
